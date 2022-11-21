@@ -55,7 +55,9 @@ import re
 # reg = r'[A-z]+\d*'
 # print(re.findall(reg, s))
 
-s = '5 + 7*2 - 4'
-# reg = r'\s*[+*-]\s*'
-reg = r'\s*(?:[+*-])\s*'
-print(re.split(reg, s))
+# s = '5 + 7*2 - 4'
+# # reg = r'\s*[+*-]\s*'
+# reg = r'\s*(?:[+*-])\s*'
+# print(re.split(reg, s))
+
+print('hello')
