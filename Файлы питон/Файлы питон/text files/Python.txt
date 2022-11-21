@@ -1,0 +1,5 @@
+In python you can make cicle 
+In python you can make function
+In python you can import mudules
+In python you can work with lists,dictioneries
+In python you can make classes
