@@ -43,7 +43,7 @@
 #     def get_format_time(self):
 #         s = self.sec % 60
 #         m = (self.sec // 60) % 60
-#         h = (self.sec // 3600) % 24
+#         h = (self.sec // 3600) % CAR
 #         return f'{Clock.get_form(h)}:{Clock.get_form(m)}:{Clock.get_form(s)}'
 #
 #     @staticmethod

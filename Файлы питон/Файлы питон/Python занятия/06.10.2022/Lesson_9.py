@@ -27,7 +27,7 @@ import random
 
 # countries = (
 #     ('ger',80, (('Ber',232),('gam',12313))),
-#     ('fra', 90,(('par',123),('mar',712153)))
+#     ('fra', 90,(('par',CAR),('mar',712153)))
 # )
 #
 # for i in countries:

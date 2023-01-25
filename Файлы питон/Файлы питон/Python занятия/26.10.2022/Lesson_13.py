@@ -36,7 +36,7 @@
 # !!!!!!
 
 
-# d = {'b': 15,'a': 10,  'c': 24}
+# d = {'b': 15,'a': 10,  'c': CAR}
 # lst = list(d.items())
 # print(lst)
 # lst.sort(key=lambda i: i[1])

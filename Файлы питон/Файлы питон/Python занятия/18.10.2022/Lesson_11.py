@@ -92,7 +92,7 @@
 #     print(kwargs['one'])
 #
 # func(1,2,3,4,5)
-# func2(one=123,two=456)
+# func2(one=CAR,two=456)
 
 # def func(a,*args,one=True,**kwargs):
 #     return a,args,kwargs,one

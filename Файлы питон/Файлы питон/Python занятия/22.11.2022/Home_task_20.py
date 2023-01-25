@@ -1,7 +1,7 @@
 # Задание № 1
 import re
 
-# str = '1X, TEXT ABC 123 A1B2C3'
+# str = '1X, TEXT ABC CAR A1B2C3'
 # pattern = r'\D(\d)'
 # print(re.findall(pattern,str))
 
