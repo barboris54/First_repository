@@ -1,0 +1,80 @@
+1.	Показать какие продавцы продают какие товары.
+SELECT Seller.Seller, SallerGoods.Goods
+FROM Seller, SallerGoods
+WHERE Seller.INNSeller = SallerGoods.INNSeller
+
+2.	Вывести продавцов и клиентов (пары), связанные м/у собой приобретенным товаром.
+SELECT Client.Client, Seller.Seller
+FROM Seller, SallerGoods,ClientGoods, Client
+WHERE Seller.INNSeller = SallerGoods.INNSeller AND ClientGoods.ID=SallerGoods.ID AND ClientGoods.INNClient = Client.INNClient
+
+3.	Вывести данные о товаре в алфавитном порядке.
+SELECT SallerGoods.Goods
+FROM SallerGoods 
+ORDER BY SallerGoods.Goods ASC
+
+4.	Вывести посредников, поставляющих товар для фирмы.
+SELECT Seller.Seller
+FROM Seller
+WHERE Seller.Status='посредник'
+
+5.	Вывести список товара, поставляемого производителями.
+SELECT SallerGoods.Goods
+FROM SallerGoods,Seller
+WHERE Seller.INNSeller=SallerGoods.INNSeller AND Seller.Status = 'производитель'
+
+6.	На какую сумму было всего куплено каждого товара фирмой.
+SELECT SallerGoods.Goods,ClientGoods.CostUnit*ClientGoods.Count
+FROM SallerGoods, ClientGoods
+
+7.На какую сумму было продано каждого товара магазинам.
+
+SELECT SallerGoods.Goods,SallerGoods.CostUnit*SallerGoods.Count
+FROM SallerGoods
+
+
+1.	Выведите список товара, проданного в кафе.
+SELECT SallerGoods.Goods
+FROM SallerGoods, ClientGoods, Client
+WHERE ClientGoods.ID = SallerGoods.ID AND ClientGoods.INNClient = Client.INNClient AND Client.Status='кафе'
+
+2.	Определить какой товар был куплен у посредников.
+SELECT SallerGoods.Goods
+FROM SallerGoods, ClientGoods, Seller
+WHERE ClientGoods.ID = SallerGoods.ID AND SallerGoods.INNSeller = Seller.INNSeller AND Seller.Status='посредник'
+
+3.	Написать запрос, который выводит название товара и прибыль, полученную от его продажи (при продаже всех единиц товара).
+SELECT SallerGoods.Goods, SallerGoods.CostUnit*SallerGoods.Count
+FROM SallerGoods, ClientGoods
+WHERE SallerGoods.ID = ClientGoods.ID AND SallerGoods.Count = ClientGoods.Count
+
+4.	 Определите какие клиенты не покупали подсолнечное масло.
+SELECT DISTINCT Client.Client 
+FROM ClientGoods, Client, SallerGoods
+WHERE SallerGoods.Goods !='масло подсолнечное' AND SallerGoods.ID = ClientGoods.ID AND Client.INNClient = ClientGoods.INNClient
+
+5.	Определите поставщиков, сделки с которыми заключили 10-11/11/2007.
+SELECT Seller.Seller, SallerGoods.DateStart
+FROM Seller, SallerGoods
+WHERE Seller.INNSeller = SallerGoods.INNSeller AND SallerGoods.DateStart BETWEEN '2007-11-10' AND '2007-11-11'
+
+6.	Показать код и наименование товара, купленного посредниками.
+SELECT SallerGoods.Code, SallerGoods.Goods
+FROM SallerGoods, ClientGoods, Client
+WHERE Client.INNClient = ClientGoods.INNClient AND ClientGoods.ID = SallerGoods.ID AND Client.Status='посредник'
+
+7.	Вывести список клиентов и сумму прибыли за каждый товар, полученную от продажи черного перца.
+SELECT Client.Client, ClientGoods.Count*ClientGoods.CostUnit
+FROM SallerGoods, ClientGoods, Client
+WHERE Client.INNClient = ClientGoods.INNClient AND ClientGoods.ID=SallerGoods.ID AND SallerGoods.Goods='Перец черный молотый'
+
+8.	 Выведите список товаров в обратном порядке, если товар куплен у производителя и продан в кафе.
+SELECT SallerGoods.Goods
+FROM SallerGoods, ClientGoods, Client, Seller
+WHERE Client.INNClient = ClientGoods.INNClient AND ClientGoods.ID=SallerGoods.ID AND SallerGoods.INNSeller = Seller.INNSeller AND Seller.Status='производитель' AND Client.Status='кафе'
+
+9.	Вывести список товаров, если фирма купила их на сумму больше 1000.
+SELECT SallerGoods.Goods
+FROM SallerGoods, ClientGoods
+WHERE ClientGoods.Count*ClientGoods.CostUnit > 1000 AND ClientGoods.ID = SallerGoods.ID
+
