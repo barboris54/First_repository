@@ -20,3 +20,4 @@ with sq.connect('db_3.db') as con:
 
     # for res in cur:
     #     print(res)
+    print(2131)
